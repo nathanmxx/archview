@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArchView - Meus projetos</title>
+  <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="marca" style="font-size:19px;margin:0">Arch<span>View</span></div>
+    <div class="topo-acoes">
+      <button id="btn-conta">Minha conta</button>
+      <button id="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <h2 class="saudacao" id="saudacao">Ola</h2>
+    <p class="saudacao-sub" id="contagem">Carregando projetos...</p>
+
+    <div class="grade-projetos" id="grade">
+      <button class="novo-projeto" id="btn-novo">+ Novo projeto</button>
+    </div>
+  </main>
+
+  <!-- Modal: novo projeto -->
+  <div class="fundo-modal" id="modal-novo" hidden>
+    <form class="modal" id="form-novo">
+      <h3>Novo projeto</h3>
+      <label for="novo-nome">Nome do projeto</label>
+      <input id="novo-nome" type="text" placeholder="Casa da praia" required>
+      <p class="aviso" id="novo-aviso"></p>
+      <div class="modal-acoes">
+        <button type="button" data-fechar>Cancelar</button>
+        <button type="submit" class="botao-principal" style="margin:0">Criar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal: conta -->
+  <div class="fundo-modal" id="modal-conta" hidden>
+    <form class="modal" id="form-conta">
+      <h3>Minha conta</h3>
+
+      <label for="conta-o-que">O que voce quer alterar?</label>
+      <select id="conta-o-que">
+        <option value="nome">Nome de usuario</option>
+        <option value="senha">Senha</option>
+      </select>
+
+      <label for="conta-novo" id="rotulo-novo">Novo nome</label>
+      <input id="conta-novo" type="text" required>
+
+      <label for="conta-senha">Confirme sua senha atual</label>
+      <input id="conta-senha" type="password" required>
+
+      <p class="aviso" id="conta-aviso"></p>
+      <div class="modal-acoes">
+        <button type="button" data-fechar>Cancelar</button>
+        <button type="submit" class="botao-principal" style="margin:0">Salvar</button>
+      </div>
+    </form>
+  </div>
+
+  <script type="module" src="/js/home.js"></script>
+</body>
+</html>

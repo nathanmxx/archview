@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArchView - Entrar</title>
+  <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+  <main class="centralizado">
+    <div class="cartao">
+      <h1 class="marca">Arch<span>View</span></h1>
+      <p class="subtitulo">Plantas baixas e projecao 3D</p>
+
+      <!-- As duas telas ficam no mesmo arquivo e a gente so troca qual
+           esta visivel. Evita recarregar a pagina inteira so pra ir do
+           login pro registro. -->
+      <form id="form-login">
+        <label for="login-nome">Usuario</label>
+        <input id="login-nome" type="text" autocomplete="username" required>
+
+        <label for="login-senha">Senha</label>
+        <input id="login-senha" type="password" autocomplete="current-password" required>
+
+        <div class="linha-check">
+          <input id="login-ver" type="checkbox">
+          <label for="login-ver" style="margin:0">Mostrar senha</label>
+        </div>
+
+        <button class="botao-principal" type="submit">Entrar</button>
+        <p class="aviso" id="login-aviso"></p>
+      </form>
+
+      <form id="form-registro" hidden>
+        <label for="reg-nome">Usuario</label>
+        <input id="reg-nome" type="text" autocomplete="username" required>
+
+        <label for="reg-senha">Senha</label>
+        <input id="reg-senha" type="password" autocomplete="new-password" required>
+
+        <label for="reg-confirma">Confirmar senha</label>
+        <input id="reg-confirma" type="password" autocomplete="new-password" required>
+
+        <div class="linha-check">
+          <input id="reg-ver" type="checkbox">
+          <label for="reg-ver" style="margin:0">Mostrar senhas</label>
+        </div>
+
+        <button class="botao-principal" type="submit">Criar conta</button>
+        <p class="aviso" id="reg-aviso"></p>
+      </form>
+
+      <p class="rodape-cartao">
+        <span id="texto-alternar">Nao tem conta?</span>
+        <a href="#" id="alternar">Criar uma</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module" src="/js/entrada.js"></script>
+</body>
+</html>
