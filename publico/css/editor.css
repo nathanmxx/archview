@@ -1,0 +1,314 @@
+/* Layout do editor.
+   Quatro faixas empilhadas: barra do projeto, barra de ferramentas,
+   area de desenho (que ocupa todo o resto) e barra de status.
+
+   Decisao central: os paineis NAO sao colunas fixas. Eles flutuam por cima
+   do desenho e so aparecem quando fazem sentido. Num editor de planta a
+   tela e o produto; painel parado ocupando 25% da largura para mostrar
+   "nada selecionado" e desperdicio. */
+
+html, body { height: 100%; overflow: hidden; }
+
+.editor {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+/* --- Barra do projeto --------------------------------------------------- */
+
+.barra-topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: var(--fundo-painel);
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.nome-projeto {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--texto);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 8px;
+  border-radius: 6px;
+  width: 200px;
+  min-width: 90px;
+}
+.nome-projeto:hover { border-color: var(--borda); }
+.nome-projeto:focus { border-color: var(--destaque); background: var(--fundo-campo); }
+
+.estado-salvo {
+  font-size: 11.5px;
+  color: var(--texto-fraco);
+  min-width: 98px;
+}
+.estado-salvo.pendente { color: #d8a24a; }
+.estado-salvo.erro { color: var(--erro); }
+
+.espaco { flex: 1; min-width: 0; }
+
+/* Botao so com icone. O nome vai no title, que o navegador mostra ao
+   passar o mouse. */
+.botao-icone {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  flex: none;
+  background: transparent;
+  border-color: transparent;
+  color: var(--texto-fraco);
+}
+.botao-icone:hover { background: var(--fundo-campo); color: var(--texto); }
+.botao-icone svg { width: 17px; height: 17px; }
+
+.grupo-botoes {
+  display: flex;
+  flex: none;
+  background: var(--fundo-campo);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.grupo-botoes button {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 6px 13px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.grupo-botoes button.ativo {
+  background: var(--destaque);
+  color: #07131c;
+  font-weight: 600;
+}
+
+.botao-destaque {
+  flex: none;
+  background: transparent;
+  border-color: var(--destaque);
+  color: var(--destaque);
+  white-space: nowrap;
+}
+.botao-destaque:hover { background: rgba(74, 168, 224, 0.14); border-color: var(--destaque); }
+
+/* --- Barra de ferramentas ----------------------------------------------- */
+
+.barra-ferramentas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: #151c25;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+.ferramentas { display: flex; gap: 2px; }
+
+.ferramenta {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 34px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--texto-fraco);
+  border-radius: 7px;
+}
+.ferramenta:hover { background: var(--fundo-campo); color: var(--texto); }
+.ferramenta svg { width: 19px; height: 19px; }
+
+.ferramenta.ativa {
+  background: rgba(74, 168, 224, 0.18);
+  border-color: var(--destaque);
+  color: #bfe2f7;
+}
+
+/* Risquinho separando os grupos de ferramentas. */
+.divisoria {
+  width: 1px;
+  height: 22px;
+  background: var(--borda);
+  margin: 0 4px;
+  flex: none;
+}
+
+/* Controles que mudam conforme a ferramenta ativa (cor do pincel,
+   texto a inserir...). Ficam na mesma linha, so aparecem quando servem. */
+.contexto { display: flex; align-items: center; gap: 8px; }
+.contexto:empty { display: none; }
+
+.contexto label { margin: 0; font-size: 12px; }
+.contexto input[type="text"] { width: 165px; padding: 5px 9px; font-size: 13px; }
+.contexto input[type="color"] { width: 40px; height: 28px; padding: 2px; }
+
+.dica-ferramenta {
+  font-size: 12px;
+  color: var(--texto-fraco);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dica-ferramenta b { color: #9fc3dc; font-weight: 600; }
+
+/* --- Area de desenho ---------------------------------------------------- */
+
+.palco { position: relative; min-height: 0; background: #f4f2ee; overflow: hidden; }
+
+#tela2d { width: 100%; height: 100%; display: block; cursor: crosshair; }
+#tela2d.modo-selecao { cursor: default; }
+
+#palco3d { position: absolute; inset: 0; }
+#palco3d canvas { display: block; }
+
+.oculto { display: none !important; }
+
+/* --- Paineis flutuantes ------------------------------------------------- */
+
+.painel-flutuante {
+  position: absolute;
+  top: 12px;
+  width: 232px;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  background: rgba(23, 30, 39, 0.96);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 13px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+}
+
+.painel-propriedades { right: 12px; }
+.painel-moveis { left: 12px; }
+
+.titulo-flutuante {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--texto-fraco);
+  margin-bottom: 9px;
+}
+
+.titulo-secao {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--texto-fraco);
+  margin: 12px 0 5px;
+}
+.titulo-secao:first-child { margin-top: 0; }
+
+/* --- Moveis ------------------------------------------------------------- */
+
+.grade-moveis { display: flex; flex-direction: column; gap: 2px; }
+
+.item-movel {
+  text-align: left;
+  padding: 6px 9px;
+  font-size: 12.5px;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.item-movel:hover { background: var(--fundo-campo); }
+.item-movel.ativo {
+  background: rgba(74, 168, 224, 0.16);
+  border-color: var(--destaque);
+}
+.item-movel small { display: block; color: var(--texto-fraco); font-size: 10.5px; }
+
+/* --- Propriedades ------------------------------------------------------- */
+
+.propriedade { margin-bottom: 9px; }
+.propriedade label { margin: 0 0 4px; }
+.propriedade input, .propriedade select { padding: 6px 9px; font-size: 13px; }
+
+.leitura {
+  background: var(--fundo-campo);
+  border: 1px solid var(--borda);
+  border-radius: 7px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  color: var(--texto-fraco);
+  margin-bottom: 9px;
+  line-height: 1.5;
+}
+.leitura b { color: var(--texto); font-weight: 600; }
+
+input[type="color"] {
+  width: 100%;
+  height: 32px;
+  padding: 3px;
+  background: var(--fundo-campo);
+  border: 1px solid var(--borda);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+/* --- Sobreposicoes ------------------------------------------------------ */
+
+.dica-passeio {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(10, 16, 24, 0.85);
+  color: #dbe9f4;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  pointer-events: none;
+}
+
+.aviso-flutuante {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 28, 38, 0.93);
+  color: #f0d9a4;
+  border: 1px solid #4a3f2a;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 5;
+}
+.aviso-flutuante.aparecendo { opacity: 1; }
+
+/* --- Barra de status ---------------------------------------------------- */
+
+.barra-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 5px 12px;
+  background: var(--fundo-painel);
+  border-top: 1px solid var(--borda);
+  font-size: 11.5px;
+  color: var(--texto-fraco);
+  white-space: nowrap;
+}
+.barra-status .valor { color: var(--texto); }
+.barra-status select { width: auto; padding: 2px 6px; font-size: 11.5px; }
+.barra-status label { display: inline; margin: 0; }
+
+.check-inline { display: flex; align-items: center; gap: 5px; }
+.check-inline input { accent-color: var(--destaque); }
+
+/* Em telas estreitas, some primeiro o que so informa, nunca o que controla.
+   A dica de uso e o estado de salvamento podem sair; botao nenhum sai. */
+@media (max-width: 900px) {
+  .dica-ferramenta { display: none; }
+  .estado-salvo { min-width: 0; }
+  .nome-projeto { width: 130px; }
+}
