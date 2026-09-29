@@ -1,0 +1,15 @@
+{
+  "name": "archview",
+  "version": "1.0.0",
+  "description": "Editor de plantas baixas com visualizacao 3D - Feira Tecnica",
+  "type": "module",
+  "scripts": {
+    "start": "node servidor/index.js",
+    "test": "node testes/geometria.test.mjs",
+    "kit": "node ferramentas/montar-kit.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "three": "^0.170.0"
+  }
+}
