@@ -1,0 +1,599 @@
+{
+ "formato": "archview",
+ "versao": 1,
+ "nome": "Apartamento 80 m² — demonstração",
+ "exportadoEm": "2026-10-02T00:32:49.498Z",
+ "planta": {
+  "versao": 1,
+  "elementos": [
+   {
+    "id": 1,
+    "tipo": "parede",
+    "a": {
+     "x": 0,
+     "y": 0
+    },
+    "b": {
+     "x": 10,
+     "y": 0
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 2,
+    "tipo": "parede",
+    "a": {
+     "x": 10,
+     "y": 0
+    },
+    "b": {
+     "x": 10,
+     "y": 8
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 3,
+    "tipo": "parede",
+    "a": {
+     "x": 10,
+     "y": 8
+    },
+    "b": {
+     "x": 0,
+     "y": 8
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 4,
+    "tipo": "parede",
+    "a": {
+     "x": 0,
+     "y": 8
+    },
+    "b": {
+     "x": 0,
+     "y": 0
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 5,
+    "tipo": "parede",
+    "a": {
+     "x": 0,
+     "y": 4.5
+    },
+    "b": {
+     "x": 10,
+     "y": 4.5
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 6,
+    "tipo": "parede",
+    "a": {
+     "x": 5.5,
+     "y": 0
+    },
+    "b": {
+     "x": 5.5,
+     "y": 4.5
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 7,
+    "tipo": "parede",
+    "a": {
+     "x": 4,
+     "y": 4.5
+    },
+    "b": {
+     "x": 4,
+     "y": 8
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 8,
+    "tipo": "parede",
+    "a": {
+     "x": 7,
+     "y": 4.5
+    },
+    "b": {
+     "x": 7,
+     "y": 8
+    },
+    "altura": 2.7,
+    "espessura": 0.15,
+    "cor": "#2b2b2b"
+   },
+   {
+    "id": 9,
+    "tipo": "porta",
+    "a": {
+     "x": 0,
+     "y": 1.6
+    },
+    "b": {
+     "x": 0,
+     "y": 2.5
+    },
+    "altura": 2.1,
+    "cor": "#b5651d",
+    "parede": 4
+   },
+   {
+    "id": 10,
+    "tipo": "porta",
+    "a": {
+     "x": 5.5,
+     "y": 3.1
+    },
+    "b": {
+     "x": 5.5,
+     "y": 3.9
+    },
+    "altura": 2.1,
+    "cor": "#b5651d",
+    "parede": 6
+   },
+   {
+    "id": 11,
+    "tipo": "porta",
+    "a": {
+     "x": 1.6,
+     "y": 4.5
+    },
+    "b": {
+     "x": 2.4,
+     "y": 4.5
+    },
+    "altura": 2.1,
+    "cor": "#b5651d",
+    "parede": 5
+   },
+   {
+    "id": 12,
+    "tipo": "porta",
+    "a": {
+     "x": 4.6,
+     "y": 4.5
+    },
+    "b": {
+     "x": 5.4,
+     "y": 4.5
+    },
+    "altura": 2.1,
+    "cor": "#b5651d",
+    "parede": 5
+   },
+   {
+    "id": 13,
+    "tipo": "porta",
+    "a": {
+     "x": 8.1,
+     "y": 4.5
+    },
+    "b": {
+     "x": 8.9,
+     "y": 4.5
+    },
+    "altura": 2.1,
+    "cor": "#b5651d",
+    "parede": 5
+   },
+   {
+    "id": 14,
+    "tipo": "janela",
+    "a": {
+     "x": 1.2,
+     "y": 0
+    },
+    "b": {
+     "x": 2.8,
+     "y": 0
+    },
+    "altura": 1.2,
+    "peitoril": 1,
+    "cor": "#4fb0d8",
+    "parede": 1
+   },
+   {
+    "id": 15,
+    "tipo": "janela",
+    "a": {
+     "x": 7,
+     "y": 0
+    },
+    "b": {
+     "x": 8.4,
+     "y": 0
+    },
+    "altura": 1.2,
+    "peitoril": 1,
+    "cor": "#4fb0d8",
+    "parede": 1
+   },
+   {
+    "id": 16,
+    "tipo": "janela",
+    "a": {
+     "x": 2.6,
+     "y": 8
+    },
+    "b": {
+     "x": 1.2,
+     "y": 8
+    },
+    "altura": 1.2,
+    "peitoril": 1,
+    "cor": "#4fb0d8",
+    "parede": 3
+   },
+   {
+    "id": 17,
+    "tipo": "janela",
+    "a": {
+     "x": 6.4,
+     "y": 8
+    },
+    "b": {
+     "x": 5,
+     "y": 8
+    },
+    "altura": 1.2,
+    "peitoril": 1,
+    "cor": "#4fb0d8",
+    "parede": 3
+   },
+   {
+    "id": 18,
+    "tipo": "janela",
+    "a": {
+     "x": 10,
+     "y": 5.4
+    },
+    "b": {
+     "x": 10,
+     "y": 6.4
+    },
+    "altura": 1.2,
+    "peitoril": 1.6,
+    "cor": "#4fb0d8",
+    "parede": 2
+   },
+   {
+    "id": 19,
+    "tipo": "piso",
+    "a": {
+     "x": 2.5,
+     "y": 2.2
+    },
+    "cor": "#d9d4c9",
+    "nome": "Sala"
+   },
+   {
+    "id": 20,
+    "tipo": "piso",
+    "a": {
+     "x": 7.7,
+     "y": 2.2
+    },
+    "cor": "#cfd7d9",
+    "nome": "Cozinha"
+   },
+   {
+    "id": 21,
+    "tipo": "piso",
+    "a": {
+     "x": 2,
+     "y": 6.2
+    },
+    "cor": "#dacfbd",
+    "nome": "Quarto 1"
+   },
+   {
+    "id": 22,
+    "tipo": "piso",
+    "a": {
+     "x": 5.5,
+     "y": 6.2
+    },
+    "cor": "#e7e3da",
+    "nome": "Quarto 2"
+   },
+   {
+    "id": 23,
+    "tipo": "piso",
+    "a": {
+     "x": 8.5,
+     "y": 6.2
+    },
+    "cor": "#c7d3db",
+    "nome": "Banheiro"
+   },
+   {
+    "id": 24,
+    "tipo": "movel",
+    "modelo": "sofa",
+    "a": {
+     "x": 2.5,
+     "y": 0.62
+    },
+    "rotacao": 180,
+    "largura": 2.1,
+    "profundidade": 0.9,
+    "altura": 0.85,
+    "cor": "#5b6b84"
+   },
+   {
+    "id": 25,
+    "tipo": "movel",
+    "modelo": "mesa_centro",
+    "a": {
+     "x": 2.5,
+     "y": 2.3
+    },
+    "rotacao": 0,
+    "largura": 1,
+    "profundidade": 0.55,
+    "altura": 0.42,
+    "cor": "#8b6b4a"
+   },
+   {
+    "id": 26,
+    "tipo": "movel",
+    "modelo": "rack_tv",
+    "a": {
+     "x": 2.5,
+     "y": 4.2
+    },
+    "rotacao": 0,
+    "largura": 1.6,
+    "profundidade": 0.4,
+    "altura": 1.2,
+    "cor": "#4a4a4f"
+   },
+   {
+    "id": 27,
+    "tipo": "movel",
+    "modelo": "poltrona",
+    "a": {
+     "x": 4.7,
+     "y": 2.3
+    },
+    "rotacao": 270,
+    "largura": 0.85,
+    "profundidade": 0.85,
+    "altura": 0.85,
+    "cor": "#5b6b84"
+   },
+   {
+    "id": 28,
+    "tipo": "movel",
+    "modelo": "bancada",
+    "a": {
+     "x": 6.55,
+     "y": 0.42
+    },
+    "rotacao": 180,
+    "largura": 1.5,
+    "profundidade": 0.6,
+    "altura": 0.9,
+    "cor": "#9aa1a8"
+   },
+   {
+    "id": 29,
+    "tipo": "movel",
+    "modelo": "fogao",
+    "a": {
+     "x": 7.75,
+     "y": 0.42
+    },
+    "rotacao": 180,
+    "largura": 0.76,
+    "profundidade": 0.6,
+    "altura": 0.9,
+    "cor": "#3a3d42"
+   },
+   {
+    "id": 30,
+    "tipo": "movel",
+    "modelo": "geladeira",
+    "a": {
+     "x": 8.8,
+     "y": 0.47
+    },
+    "rotacao": 180,
+    "largura": 0.7,
+    "profundidade": 0.7,
+    "altura": 1.8,
+    "cor": "#c8ccd0"
+   },
+   {
+    "id": 31,
+    "tipo": "movel",
+    "modelo": "mesa_jantar",
+    "a": {
+     "x": 7.7,
+     "y": 2.9
+    },
+    "rotacao": 0,
+    "largura": 1.6,
+    "profundidade": 0.9,
+    "altura": 0.76,
+    "cor": "#8b6b4a"
+   },
+   {
+    "id": 32,
+    "tipo": "movel",
+    "modelo": "cadeira",
+    "a": {
+     "x": 7.1,
+     "y": 2.05
+    },
+    "rotacao": 180,
+    "largura": 0.45,
+    "profundidade": 0.45,
+    "altura": 0.9,
+    "cor": "#8b6b4a"
+   },
+   {
+    "id": 33,
+    "tipo": "movel",
+    "modelo": "cadeira",
+    "a": {
+     "x": 8.3,
+     "y": 2.05
+    },
+    "rotacao": 180,
+    "largura": 0.45,
+    "profundidade": 0.45,
+    "altura": 0.9,
+    "cor": "#8b6b4a"
+   },
+   {
+    "id": 34,
+    "tipo": "movel",
+    "modelo": "cadeira",
+    "a": {
+     "x": 7.1,
+     "y": 3.75
+    },
+    "rotacao": 0,
+    "largura": 0.45,
+    "profundidade": 0.45,
+    "altura": 0.9,
+    "cor": "#8b6b4a"
+   },
+   {
+    "id": 35,
+    "tipo": "movel",
+    "modelo": "cadeira",
+    "a": {
+     "x": 8.3,
+     "y": 3.75
+    },
+    "rotacao": 0,
+    "largura": 0.45,
+    "profundidade": 0.45,
+    "altura": 0.9,
+    "cor": "#8b6b4a"
+   },
+   {
+    "id": 36,
+    "tipo": "movel",
+    "modelo": "cama_casal",
+    "a": {
+     "x": 1.3,
+     "y": 5.6
+    },
+    "rotacao": 0,
+    "largura": 1.38,
+    "profundidade": 1.88,
+    "altura": 0.5,
+    "cor": "#6d7f9c"
+   },
+   {
+    "id": 37,
+    "tipo": "movel",
+    "modelo": "criado_mudo",
+    "a": {
+     "x": 2.35,
+     "y": 4.85
+    },
+    "rotacao": 0,
+    "largura": 0.45,
+    "profundidade": 0.4,
+    "altura": 0.55,
+    "cor": "#7a6047"
+   },
+   {
+    "id": 38,
+    "tipo": "movel",
+    "modelo": "guarda_roupa",
+    "a": {
+     "x": 1.5,
+     "y": 7.62
+    },
+    "rotacao": 0,
+    "largura": 1.8,
+    "profundidade": 0.6,
+    "altura": 2.2,
+    "cor": "#7a6047"
+   },
+   {
+    "id": 39,
+    "tipo": "texto",
+    "a": {
+     "x": 4.35,
+     "y": 6.3
+    },
+    "texto": "Espaço livre",
+    "cor": "#8a7a52",
+    "tamanho": 0.26
+   },
+   {
+    "id": 40,
+    "tipo": "movel",
+    "modelo": "box",
+    "a": {
+     "x": 9.4,
+     "y": 5.05
+    },
+    "rotacao": 0,
+    "largura": 0.9,
+    "profundidade": 0.9,
+    "altura": 1.9,
+    "cor": "#7fb7cf"
+   },
+   {
+    "id": 41,
+    "tipo": "movel",
+    "modelo": "vaso",
+    "a": {
+     "x": 7.4,
+     "y": 7.3
+    },
+    "rotacao": 270,
+    "largura": 0.38,
+    "profundidade": 0.68,
+    "altura": 0.78,
+    "cor": "#e4e6e8"
+   },
+   {
+    "id": 42,
+    "tipo": "movel",
+    "modelo": "pia_banheiro",
+    "a": {
+     "x": 8.8,
+     "y": 7.68
+    },
+    "rotacao": 0,
+    "largura": 0.6,
+    "profundidade": 0.45,
+    "altura": 0.85,
+    "cor": "#e4e6e8"
+   }
+  ]
+ }
+}

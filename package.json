@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node servidor/index.js",
     "test": "node testes/geometria.test.mjs",
-    "kit": "node ferramentas/montar-kit.mjs"
+    "kit": "node ferramentas/montar-kit.mjs",
+    "exemplo": "node ferramentas/gerar-exemplo.mjs"
   },
   "dependencies": {
     "express": "^4.21.2",

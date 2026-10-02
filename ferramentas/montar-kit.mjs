@@ -53,6 +53,11 @@ for (const pasta of ["servidor", "publico", "node_modules"]) {
 }
 cpSync(join(RAIZ, "package.json"), join(programa, "package.json"));
 
+// --- as plantas de exemplo, prontas para importar no dia ---
+if (existsSync(join(RAIZ, "exemplos"))) {
+  cpSync(join(RAIZ, "exemplos"), join(DESTINO, "backup", "plantas"), { recursive: true });
+}
+
 // --- o node.exe, que é o que dispensa instalar qualquer coisa ---
 const nodeExe = acharNodeExe();
 cpSync(nodeExe, join(programa, "node.exe"));
