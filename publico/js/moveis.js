@@ -70,7 +70,10 @@ export const CATALOGO = [
     ],
   },
   {
-    chave: "criado_mudo", nome: "Criado-mudo", categoria: "Quarto",
+    // A chave continua "criado_mudo" de proposito: ela e o identificador
+    // gravado dentro das plantas ja salvas. Trocar a chave faria esse movel
+    // sumir de todo projeto antigo. O que o usuario le e o "nome".
+    chave: "criado_mudo", nome: "Mesa de cabeceira", categoria: "Quarto",
     largura: 0.45, profundidade: 0.4, altura: 0.55, cor: "#7a6047",
     pecas: [caixa(0, 0, 0, 0.45, 0.4, 0.55, MADEIRA)],
   },
