@@ -100,6 +100,7 @@ export class Editor2D {
 
     this._ligarEventos();
     this._ajustarTamanho();
+
   }
 
   // -------------------------------------------------------------------------
@@ -1002,7 +1003,44 @@ export class Editor2D {
     this.redesenhar();
   }
 
+  // Tenta enquadrar de novo daqui a pouco.
+  //
+  // Usamos um temporizador simples, e nao ResizeObserver, de proposito: o
+  // ResizeObserver so entrega o aviso durante o ciclo de desenho da pagina,
+  // entao justamente quando a aba esta em segundo plano ou ainda nem pintou
+  // - que e o caso que queremos cobrir - ele pode nunca disparar.
+  _agendarEnquadrar() {
+    this._enquadrarPendente = true;
+
+    if (this._cronometroEnquadrar) return;        // ja tem tentativa marcada
+    if ((this._tentativasEnquadrar ?? 0) >= 30) return; // desiste apos ~3 s
+
+    this._tentativasEnquadrar = (this._tentativasEnquadrar ?? 0) + 1;
+
+    this._cronometroEnquadrar = setTimeout(() => {
+      this._cronometroEnquadrar = null;
+      this._ajustarTamanho();
+      this.enquadrarTudo();
+    }, 100);
+  }
+
+  // O canvas nem sempre tem o tamanho final quando o editor nasce: a pagina
+  // pode estar abrindo ainda (mais provavel rodando de pendrive, que e mais
+  // lento) ou o 2D pode estar escondido atras do 3D. Enquadrar nesse momento
+  // calcularia um zoom minusculo e a planta viraria um pontinho na tela.
   enquadrarTudo() {
+    const tela = this._tamanho();
+
+    if (tela.largura < 120 || tela.altura < 120) {
+      this._agendarEnquadrar();
+      return;
+    }
+
+    clearTimeout(this._cronometroEnquadrar);
+    this._cronometroEnquadrar = null;
+    this._tentativasEnquadrar = 0;
+    this._enquadrarPendente = false;
+
     const pontos = [];
 
     for (const el of this.elementos) {
@@ -1027,9 +1065,8 @@ export class Editor2D {
     this.camera.y = (minY + maxY) / 2;
 
     const margem = 1.2; // metros de folga em volta
-    const { largura: telaL, altura: telaA } = this._tamanho();
-    const escalaX = telaL / (maxX - minX + margem * 2);
-    const escalaY = telaA / (maxY - minY + margem * 2);
+    const escalaX = tela.largura / (maxX - minX + margem * 2);
+    const escalaY = tela.altura / (maxY - minY + margem * 2);
 
     this.camera.escala = Math.max(8, Math.min(200, Math.min(escalaX, escalaY)));
 
