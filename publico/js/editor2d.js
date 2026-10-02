@@ -1456,6 +1456,51 @@ export class Editor2D {
     if (this.mostrarCotas) this._desenharCota(el.a, el.b, 14);
   }
 
+  // Seta mostrando para onde o movel esta virado.
+  //
+  // Antes aqui tinha so um risco na borda da frente, e ninguem entendia que
+  // aquilo era a frente. A seta diz na hora para que lado a cama, o sofa ou
+  // o vaso estao apontando - que e o que importa na hora de girar com R.
+  //
+  // Desenhada duas vezes: primeiro grossa e clara, depois fina e escura. Esse
+  // contorno faz ela continuar legivel tanto em movel claro quanto escuro.
+  // Chamada ja dentro do contexto girado do movel, entao "para cima" (-y) e
+  // sempre a frente dele.
+  _desenharSetaDaFrente(largura, profundidade) {
+    const ctx = this.ctx;
+
+    const comprimento = Math.min(profundidade * 0.42, largura * 0.5, 22);
+    if (comprimento < 6) return; // movel pequeno demais na tela: poluiria
+
+    const pontaY = -profundidade / 2 + Math.min(4, profundidade * 0.1);
+    const baseY = pontaY + comprimento;
+    const asa = comprimento * 0.5;
+
+    const tracar = () => {
+      ctx.beginPath();
+      ctx.moveTo(0, baseY);
+      ctx.lineTo(0, pontaY);
+      ctx.moveTo(-asa, pontaY + asa);
+      ctx.lineTo(0, pontaY);
+      ctx.lineTo(asa, pontaY + asa);
+      ctx.stroke();
+    };
+
+    ctx.save();
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+
+    ctx.strokeStyle = "rgba(255,255,255,0.75)";
+    ctx.lineWidth = 3.4;
+    tracar();
+
+    ctx.strokeStyle = "rgba(20,26,34,0.85)";
+    ctx.lineWidth = 1.5;
+    tracar();
+
+    ctx.restore();
+  }
+
   _desenharMovel(el) {
     const ctx = this.ctx;
     const centro = this.mundoParaTela(el.a);
@@ -1476,12 +1521,7 @@ export class Editor2D {
     ctx.lineWidth = 1.2;
     ctx.strokeRect(-largura / 2, -profundidade / 2, largura, profundidade);
 
-    // Risquinho indicando a "frente" do movel, pra saber pra onde ele aponta.
-    ctx.strokeStyle = "rgba(25,30,38,0.4)";
-    ctx.beginPath();
-    ctx.moveTo(-largura / 2, -profundidade / 2);
-    ctx.lineTo(largura / 2, -profundidade / 2);
-    ctx.stroke();
+    this._desenharSetaDaFrente(largura, profundidade);
 
     const definicao = movelPorChave(el.modelo);
     if (definicao && largura > 42 && profundidade > 20) {
