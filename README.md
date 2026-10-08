@@ -41,23 +41,6 @@ outro computador, desde que estejam no mesmo Wi-Fi.
 
 ---
 
-## Levar para outro computador (pendrive)
-
-Para rodar num computador que não tem Node instalado (o da escola, por
-exemplo:
-
-```bash
-npm run kit
-```
-
-Isso monta a pasta `ArchView-Feira` ao lado do projeto. Copie ela inteira
-para o pendrive. Lá dentro, **ABRIR ARCHVIEW.bat** liga o programa e abre o
-navegador sozinho, sem instalar nada e sem precisar de senha de
-administrador: o `node.exe` vai junto no kit.
-
-Rode `npm run kit` de novo sempre que mudar o código, senão o pendrive fica
-com a versão antiga.
-
 ## O que dá para fazer
 
 | Ferramenta | Atalho | O que faz |
