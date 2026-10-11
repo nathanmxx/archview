@@ -179,7 +179,7 @@ mkdirSync(dirname(SAIDA), { recursive: true });
 writeFileSync(SAIDA, JSON.stringify({
   formato: "archview",
   versao: 1,
-  nome: "Apartamento 80 m² — demonstração",
+  nome: "Apartamento 80 m² (demonstração)",
   exportadoEm: new Date().toISOString(),
   planta,
 }, null, 1));
